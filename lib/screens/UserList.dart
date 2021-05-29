@@ -28,7 +28,7 @@ class _UserListState extends State<UserList> {
               children: snapshot.data!.docs.map((doc) {
                 return Card(
                   color: Colors.red,
-                  child: Container(
+                  child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
                         Column(
@@ -38,6 +38,11 @@ class _UserListState extends State<UserList> {
                                 fit: BoxFit.fill),
                             Text(doc["name"])
                           ],
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).pushReplacementNamed('/video');
+                          },
                         )
                       ],
                     ),
@@ -56,6 +61,7 @@ class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("ACTIVE USERS"),
