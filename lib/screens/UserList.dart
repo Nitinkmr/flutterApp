@@ -4,6 +4,8 @@ import 'package:flutterfire_samples/models/User.dart';
 import 'package:flutterfire_samples/services/database_service.dart';
 import 'dart:convert';
 
+import 'VideoApp.dart';
+
 class UserList extends StatefulWidget {
   @override
   _UserListState createState() => _UserListState();
@@ -41,7 +43,8 @@ class _UserListState extends State<UserList> {
                         ),
                         GestureDetector(
                           onTap: (){
-                            Navigator.of(context).pushReplacementNamed('/video');
+                            Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => VideoApp(url:"https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4")) );;
                           },
                         )
                       ],

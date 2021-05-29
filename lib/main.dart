@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: SignInScreen(),
       routes :{
         '/users' : (context) => UserList(),
-        '/video': (context) =>VideoApp(),
+        //'/video': (context) =>VideoApp(),
       }
     );
   }
