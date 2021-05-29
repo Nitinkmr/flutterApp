@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'screens/sign_in_screen.dart';
+import 'screens/UserList.dart';
+import 'screens/VideoApp.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +19,10 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       home: SignInScreen(),
+      routes :{
+        '/users' : (context) => UserList(),
+        '/video': (context) =>VideoApp(),
+      }
     );
   }
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "801344383025",
+    "project_id": "video-app-5366c",
+    "storage_bucket": "video-app-5366c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801344383025:android:0bb26c8112e96ece17cd10",
+        "android_client_info": {
+          "package_name": "com.meChat.myApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801344383025-5e0ujmpv0udvo35a3r12664vkthm6j43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.meChat.myApp",
+            "certificate_hash": "36584765b09b7f3af7b3506336faadc7f2cffc70"
+          }
+        },
+        {
+          "client_id": "801344383025-l1ibegukpinc5ooo9f9gb6k174lvlkpv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLzBGhv0xw0Yz_2gbNC7GDs7fmFgaHl_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801344383025-l1ibegukpinc5ooo9f9gb6k174lvlkpv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -122,7 +122,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     fontSize: 14,
                     letterSpacing: 0.2),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 32.0),
               _isSigningOut
                   ? CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -162,6 +162,14 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                         ),
                       ),
                     ),
+              ElevatedButton(
+                  onPressed: (){
+                    Navigator.of(context).pushReplacementNamed('/users');
+                  },
+                  child: Text(
+                    'View Active Users'
+                  )
+              )
             ],
           ),
         ),
