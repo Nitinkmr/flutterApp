@@ -40,11 +40,21 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   _isSigningIn = false;
                 });
 
+                //if (user != null) {
+                  // Navigator.of(context).pushReplacement(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => UserList(
+                  //         loggedInUserEmail: user.email
+                  //     ),
+                  //   ),
+                  //);
+               // }
+
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => UserList(
-
+                      builder: (context) => UserInfoScreen(
+                        user: user,
                       ),
                     ),
                   );

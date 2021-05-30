@@ -28,7 +28,7 @@ class DatabaseService {
 
   // create group
 
-  /*Future createGroup(String userName, String groupName) async {
+  Future createGroup(String userName, String groupName, String loggeInUserId) async {
     DocumentReference groupDocRef = await groupCollection.add({
       'groupName': groupName,
       'groupIcon': '',
@@ -41,15 +41,15 @@ class DatabaseService {
     });
 
     await groupDocRef.update({
-        'members': FieldValue.arrayUnion([uid + '_' + userName]),
+        'members': FieldValue.arrayUnion([loggeInUserId + '_' + userName]),
         'groupId': groupDocRef.id
     });
 
-    DocumentReference userDocRef = userCollection.doc(uid);
+    DocumentReference userDocRef = userCollection.doc(loggeInUserId);
     return await userDocRef.update({
       'groups': FieldValue.arrayUnion([groupDocRef.id + '_' + groupName])
     });
-  }*/
+  }
 
 
   // toggling the user group join
@@ -141,7 +141,7 @@ class DatabaseService {
   }
 
   // search groups
-  searchByName(String groupName) {
-    return FirebaseFirestore.instance.collection("groups").where('groupName', isEqualTo: groupName).get();
+  searchByName(String groupName) async {
+    return await FirebaseFirestore.instance.collection("groups").where('groupName', isEqualTo: groupName).get();
   }
 }

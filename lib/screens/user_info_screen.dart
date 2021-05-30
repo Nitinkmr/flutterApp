@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/screens/UserList.dart';
 import 'package:flutterfire_samples/screens/sign_in_screen.dart';
 import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
@@ -11,6 +12,7 @@ class UserInfoScreen extends StatefulWidget {
         super(key: key);
 
   final User _user;
+
 
   @override
   _UserInfoScreenState createState() => _UserInfoScreenState();
@@ -164,7 +166,13 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     ),
               ElevatedButton(
                   onPressed: (){
-                    Navigator.of(context).pushReplacementNamed('/users');
+                    //Navigator.of(context).pushReplacementNamed('/users');
+                    // Navigator.push(context, MaterialApp(
+                    //   builder: (context) => UserList(loggedInUserEmail,: _user.email),
+                    // ));
+
+                     Navigator.push(context,
+                                                 MaterialPageRoute(builder: (context) => UserList(loggedInUserEmail: "")) );;
                   },
                   child: Text(
                     'View Active Users'

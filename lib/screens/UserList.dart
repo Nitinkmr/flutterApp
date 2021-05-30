@@ -7,12 +7,17 @@ import 'dart:convert';
 import 'VideoApp.dart';
 
 class UserList extends StatefulWidget {
+
+  String loggedInUserEmail;
+  UserList({Key? key, required this.loggedInUserEmail}) : super(key: key);
+
   @override
-  _UserListState createState() => _UserListState();
+  _UserListState createState() => _UserListState(loggedInUserEmail:this.loggedInUserEmail);
 }
 
 class _UserListState extends State<UserList> {
-
+  String loggedInUserEmail;
+  _UserListState({Key? key, required this.loggedInUserEmail}) ;
   late Stream<QuerySnapshot> _users;
 
   @override
@@ -28,9 +33,11 @@ class _UserListState extends State<UserList> {
             crossAxisCount: 2,
             scrollDirection: Axis.vertical,
               children: snapshot.data!.docs.map((doc) {
+                print(doc);
+                User user = new User(doc["name"], doc["id"], doc["live_urls"], doc["pics_urls"], doc["videos_urls"]);
                 return Card(
                   color: Colors.red,
-                  child: SingleChildScrollView(
+                  //child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
                         Column(
@@ -44,12 +51,12 @@ class _UserListState extends State<UserList> {
                         GestureDetector(
                           onTap: (){
                             Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => VideoApp(url:"https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4")) );;
+                            MaterialPageRoute(builder: (context) => VideoApp(currentUser: user, loggedInUserEmail:loggedInUserEmail)) );;
                           },
                         )
                       ],
                     ),
-                  )
+                  //)
 
 
                 );
@@ -87,8 +94,8 @@ class _UserListState extends State<UserList> {
     List users = usersJson != null ? List.from(usersJson) : [];
     List<User> convertedUsers = [];
     for (int i = 0; i < users.length; i++) {
-      Map userMap = json.decode(users[i]);
-      User user = new User(name: userMap["name"]);
+      Map doc = json.decode(users[i]);
+      User user = new User(doc["name"], doc["id"], doc["live_urls"], doc["pics_urls"], doc["videos_urls"]);
       convertedUsers.add(user);
     }
 
